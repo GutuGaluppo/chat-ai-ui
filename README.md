@@ -1,32 +1,13 @@
-# Chat AI API
-This is the backend for the Chat AI application. It is a Node/Express/TypeScript API that uses Stream for chat, chat history, and user management. It also uses a PostgreSQL database from Neon to store user information and chat history. We use the Drizzle ORM to interact with the database. Open AI is used for the AI chatbot.
+# Chat AI UI
+This is the frontend for the Chat AI application. It is a **Vue.js 3** application that uses a custom API to interact with [Stream Chat](https://getstream.io/), your own [Neon](https://console.neon.tech/app/projects) PostgreSQL database and [OpenRouter AI](https://openrouter.ai/).
 
-The Vue.js frontend for this application can be found here.
+![Screen of Chat AI!](chat-ai-ui/src/assets/screen.png "Screen of Chat AI")
+
+The Express backend API for this application can be found [here](https://github.com/GutuGaluppo/chat-ai-api/tree/master).
 
 ## Installation
 1. Clone the repository
-2. Run npm install
-3. Create a .env file in the root directory and add the following environment variables:
-```
-PORT=5000
-STREAM_API_KEY=""
-STREAM_API_SECRET=""
-OPENAI_API_KEY=""
-DATABASE_URL="postgresql://username:password@localhost:5432/dbname"
-```
-You can get these keys by signing up for Stream, Open AI, and Neon.
-
-4. Run database migrations with Drizzle Kit:
-```
-npx drizzle-kit generate
-npx drizzle-kit migrate
-```
-This will create the necessary tables in your database.
-
-5. Run the server with npm run dev and open on ```http://localhost:5174```
-## Endpoints
-- POST ```/register-user``` - Create a user in Stream chat and in our own database
-- POST ```/chat``` - Creates a new Stream chat channel, sends a request to Open AI to generate a response, and saves the chat history in our database
-- POST ```/get-messages``` - Get's the chat history for a specific user
-## Building For Production
-This is a TypeScript project, so you will need to build the project before running in production. Run ```npm run build``` to build the project. You can then run the server with ```npm start```. The files will be in the ```dist``` directory.
+2. Run ```npm install```
+3. Create a ```.env``` file in the root directory and add the following environment variables:
+```VITE_API_URL=http://localhost:5000```
+4. Run the server with ```npm run dev``` and open on ```http://localhost:3000```
